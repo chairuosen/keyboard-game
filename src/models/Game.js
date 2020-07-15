@@ -5,15 +5,16 @@ import utils from '../utils/utils';
 export default class Game {
   constructor (props = {}) {
     this._start = false;
-    this.screen = this.createScreen();
+    this.screen = this.createScreen(0);
     this.onKeyDown = this.onKeyDown.bind(this);
     this.onKeyUp = this.onKeyUp.bind(this);
   }
 
-  createScreen (){
+  createScreen (idx){
     let arrowButtonBase = [10,5];
     let game = this;
     let screen = new Screen({
+      id:idx,
       elements:[
         new Element({
           x:1,
@@ -21,13 +22,13 @@ export default class Game {
           color:'red',
           pressedColor:'green',
           onPressed(){
-            screen.subScreen = game.createScreen();
+            screen.subScreen = game.createScreen(idx+1);
           }
         }),
         new Element({
           x:15,
           y:6,
-          speed:0.07,
+          speed:0.04,
           zIndex:10,
           color:'blue',
           pressedColor:'green',

@@ -1,5 +1,6 @@
 export default class Screen {
   constructor (props = {}) {
+    this.id = props.id || 0;
     this.width = props.width || 30;
     this.height = props.height || 8;
     this.elements = props.elements || [];

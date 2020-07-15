@@ -7,11 +7,19 @@
     .element{
       position:absolute;
     }
+    .id{
+      position:absolute;
+      top:5px;
+      left:5px;
+      font-weight: bold;
+      font-size:20px;
+    }
   }
 </style>
 <template>
   <div class="wrapper" ref="wrapper">
     <div class="self-screen" :style="{width:px(screen.width),height:px(screen.height)}">
+      <div class="id">{{ screen.id }}</div>
       <div class="element" v-for="el in screen.elements" v-show="el.isShow()" :style="{
       width:px(el.width),
       height:px(el.height),
